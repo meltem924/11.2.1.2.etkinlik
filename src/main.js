@@ -188,11 +188,23 @@ document.querySelectorAll('.step-nav-btn').forEach(btn => {
 });
 
 document.getElementById('btn-start-activity')?.addEventListener('click', () => goToStep(1));
-document.getElementById('btn-go-step-2')?.addEventListener('click', () => goToStep(2));
+document.getElementById('btn-go-step-2')?.addEventListener('click', () => {
+  if (state.watchedCharacters.size >= Object.keys(CHARACTER_DATA).length) {
+    goToStep(2);
+  }
+});
 document.getElementById('btn-back-step-1')?.addEventListener('click', () => goToStep(1));
-document.getElementById('btn-go-step-3')?.addEventListener('click', () => goToStep(3));
+document.getElementById('btn-go-step-3')?.addEventListener('click', () => {
+  if (Object.keys(state.placedConcepts).length >= CONCEPT_CARDS.length) {
+    goToStep(3);
+  }
+});
 document.getElementById('btn-back-step-2')?.addEventListener('click', () => goToStep(2));
-document.getElementById('btn-go-step-4')?.addEventListener('click', () => goToStep(4));
+document.getElementById('btn-go-step-4')?.addEventListener('click', () => {
+  if (examinedBreaks.size >= 4) {
+    goToStep(4);
+  }
+});
 
 // ==========================================
 // 5. 1. ADIM: VİDEO MODAL VE ÇOKLU SEÇİM SORU YÖNETİMİ
@@ -236,6 +248,8 @@ function openVideoModal(characterKey) {
 
   // Video Bittiğinde Soruları Aç
   activeVideoPlayer.onended = () => {
+    state.watchedCharacters.add(characterKey);
+    updateStep1NextButton();
     showModalQuestions(characterKey);
   };
 
@@ -428,6 +442,23 @@ function markCharacterWatched(characterKey) {
       Tamamlandı
     `;
   }
+  updateStep1NextButton();
+}
+
+function updateStep1NextButton() {
+  const totalCharacters = Object.keys(CHARACTER_DATA).length;
+  const watchedCount = state.watchedCharacters.size;
+  const btnGoStep2 = document.getElementById('btn-go-step-2');
+  if (!btnGoStep2) return;
+
+  const isAllWatched = watchedCount >= totalCharacters;
+  if (isAllWatched) {
+    btnGoStep2.disabled = false;
+    btnGoStep2.className = 'w-full sm:w-auto px-7 py-3 rounded-none bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white font-bold text-sm shadow-md border border-amber-600/40 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]';
+  } else {
+    btnGoStep2.disabled = true;
+    btnGoStep2.className = 'w-full sm:w-auto px-7 py-3 rounded-none bg-[#dfd5c3] text-[#8c7e70] font-bold text-sm border border-[#cfc1ac] transition-all flex items-center justify-center gap-2 cursor-not-allowed opacity-60 pointer-events-none';
+  }
 }
 
 // Karakter kartlarına tıklama olayı
@@ -499,6 +530,7 @@ function initConceptCards() {
   });
 
   updateRemainingCount();
+  updateStep2NextButton();
 }
 
 function selectConceptCard(cardId) {
@@ -577,6 +609,7 @@ function handlePlacement(cardId, targetName, targetZone, dropArea) {
 
     dropArea.appendChild(cardEl);
     updateRemainingCount();
+    updateStep2NextButton();
 
     // Yeşil hafif parlama efekti
     targetZone.classList.add('ring-2', 'ring-emerald-600');
@@ -623,6 +656,22 @@ function updateRemainingCount() {
   }
 }
 
+function updateStep2NextButton() {
+  const totalCards = CONCEPT_CARDS.length;
+  const placedCount = Object.keys(state.placedConcepts).length;
+  const btnGoStep3 = document.getElementById('btn-go-step-3');
+  if (!btnGoStep3) return;
+
+  const isAllPlaced = placedCount >= totalCards;
+  if (isAllPlaced) {
+    btnGoStep3.disabled = false;
+    btnGoStep3.className = 'w-full sm:w-auto px-7 py-3 rounded-none bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white font-bold text-sm shadow-md border border-amber-600/40 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]';
+  } else {
+    btnGoStep3.disabled = true;
+    btnGoStep3.className = 'w-full sm:w-auto px-7 py-3 rounded-none bg-[#dfd5c3] text-[#8c7e70] font-bold text-sm border border-[#cfc1ac] transition-all flex items-center justify-center gap-2 cursor-not-allowed opacity-60 pointer-events-none';
+  }
+}
+
 // ==========================================
 // 7. 3. ADIM: BÜYÜK KIRILMA SERGİSİ (3D ASILI ÇARŞAF VE MANDAL ETKİLEŞİMİ)
 // ==========================================
@@ -641,6 +690,7 @@ document.querySelectorAll('.hanging-sheet-wrapper').forEach(wrapper => {
     card?.classList.add('is-flipped');
 
     examinedBreaks.add(breakNum);
+    updateStep3NextButton();
 
     // 4 belge de incelendiğinde tebrik konfetisi
     if (examinedBreaks.size === 4) {
@@ -657,6 +707,22 @@ document.querySelectorAll('.hanging-sheet-wrapper').forEach(wrapper => {
     card?.classList.remove('is-flipped');
   });
 });
+
+function updateStep3NextButton() {
+  const totalBreaks = 4;
+  const examinedCount = examinedBreaks.size;
+  const btnGoStep4 = document.getElementById('btn-go-step-4');
+  if (!btnGoStep4) return;
+
+  const isAllExamined = examinedCount >= totalBreaks;
+  if (isAllExamined) {
+    btnGoStep4.disabled = false;
+    btnGoStep4.className = 'w-full sm:w-auto px-8 py-3 rounded-none bg-gradient-to-r from-[#065f46] via-[#047857] to-[#065f46] hover:from-[#047857] hover:to-[#059669] text-white font-bold text-sm shadow-md border border-emerald-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]';
+  } else {
+    btnGoStep4.disabled = true;
+    btnGoStep4.className = 'w-full sm:w-auto px-8 py-3 rounded-none bg-[#dfd5c3] text-[#8c7e70] font-bold text-sm border border-[#cfc1ac] transition-all flex items-center justify-center gap-2 cursor-not-allowed opacity-60 pointer-events-none';
+  }
+}
 
 // ==========================================
 // 8. SCORM ENTEGRASYONU VE ETKİNLİK BİTİRME
@@ -712,11 +778,14 @@ document.getElementById('btn-restart')?.addEventListener('click', () => {
     }
   });
 
+  updateStep1NextButton();
+
   // Eşleştirme kartlarını sıfırla
   initConceptCards();
 
   // Kırılma kartlarını (çarşafları) sıfırla
   examinedBreaks.clear();
+  updateStep3NextButton();
 
   document.querySelectorAll('.hanging-sheet-wrapper').forEach(wrapper => {
     const card = wrapper.querySelector('.hanging-sheet-card');
@@ -762,3 +831,6 @@ window.addEventListener('beforeunload', () => {
 
 // Başlangıç Kurulumu
 initConceptCards();
+updateStep1NextButton();
+updateStep2NextButton();
+updateStep3NextButton();
