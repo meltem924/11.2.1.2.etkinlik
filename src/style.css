@@ -1,0 +1,445 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    background-color: #f4eee2;
+    background-image: 
+      radial-gradient(ellipse at 50% 0%, #fcfaf5 0%, #f4eee2 55%, #e9e0cf 100%);
+    color: #2b2118;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+  }
+}
+
+/* Özel Sıcak Arşiv Kaydırma Çubuğu */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ebe1d1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbbba2;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8977e;
+}
+
+/* Yumuşak geçişler ve animasyonlar */
+.transition-smooth {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.02); }
+}
+
+.pulse-card {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+/* Parşömen Temel Kart Dokuları */
+.parchment-card {
+  background: radial-gradient(circle at 50% 20%, #fdfbf7 0%, #f8f3ea 55%, #eee4d5 100%);
+  border: 1px solid #d8ccb9;
+  box-shadow: 0 4px 16px -2px rgba(60, 45, 30, 0.08), 0 2px 6px -1px rgba(60, 45, 30, 0.04);
+}
+
+.parchment-panel {
+  background: #fdfcf9;
+  border: 1px solid #dfd6c5;
+  box-shadow: 0 2px 10px -2px rgba(60, 45, 30, 0.05);
+}
+
+.parchment-inner-dashed {
+  position: relative;
+}
+.parchment-inner-dashed::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed rgba(160, 125, 85, 0.28);
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+/* Sürükle bırak durumları */
+.drag-over {
+  border-color: #b45309 !important;
+  background-color: rgba(254, 243, 199, 0.75) !important;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.35) !important;
+  transform: scale(1.01);
+}
+
+.dragging {
+  opacity: 0.45;
+  transform: scale(0.97);
+}
+
+/* Karakter kartı play overlay (Sıcak Kehribar Vurgulu) */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(35, 26, 20, 0.25);
+  opacity: 0.6;
+  transition: opacity 0.35s ease, background 0.35s ease;
+  pointer-events: none;
+}
+
+.play-overlay .play-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(45, 25, 12, 0.25);
+  transform: scale(0.88);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.play-overlay .play-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #78350f;
+  margin-left: 2px;
+}
+
+.character-card:hover .play-overlay {
+  opacity: 1;
+  background: rgba(35, 26, 20, 0.35);
+}
+
+.character-card:hover .play-overlay .play-icon {
+  transform: scale(1);
+  box-shadow: 0 8px 30px rgba(45, 25, 12, 0.35);
+  background: #ffffff;
+}
+
+/* ==========================================
+   3D ASILI İP, AHŞAP MANDAL VE ÇARŞAF STİLLERİ (3. AŞAMA - ULTRA PROFESYONEL)
+   ========================================== */
+
+/* Arşiv / Müze Sergi Odası Ambiyansı */
+.atelier-room {
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(254, 240, 199, 0.16) 0%, rgba(20, 17, 15, 0.96) 75%),
+    linear-gradient(180deg, #1e1916 0%, #151210 60%, #0d0b09 100%);
+  border: 1px solid #4a3c31;
+  box-shadow: 
+    inset 0 0 100px rgba(0, 0, 0, 0.8),
+    0 20px 40px -10px rgba(45, 25, 12, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Duvar Ahşap / Kumaş Doku Efekti */
+.atelier-room::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 80px,
+    rgba(255, 255, 255, 0.015) 80px,
+    rgba(255, 255, 255, 0.015) 82px
+  );
+  pointer-events: none;
+}
+
+/* Üstten vuran gerçekçi spot ışıkları */
+.spotlight-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: 
+    radial-gradient(ellipse at 15% 0%, rgba(253, 230, 138, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 38% 0%, rgba(253, 230, 138, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 62% 0%, rgba(253, 230, 138, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 0%, rgba(253, 230, 138, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gerilmiş 3D Çamaşır / Arşiv İpi (Doğal Lifli Halat) */
+.clothesline-container {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  margin-bottom: -14px;
+  z-index: 15;
+}
+
+.clothesline-rope {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  height: 7px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    55deg,
+    #784c25 0px,
+    #9c6634 3px,
+    #c49258 5px,
+    #9c6634 7px,
+    #633d1c 9px
+  );
+  border-radius: 4px;
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.6),
+    0 1px 1px rgba(255, 255, 255, 0.25) inset,
+    0 -1px 2px rgba(0, 0, 0, 0.4) inset;
+}
+
+/* İp Sabitleme Metal Braketleri ve Vidalar */
+.rope-hook-left, .rope-hook-right {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 35% 35%, #e6ca65 0%, #a37d2c 50%, #4a3610 100%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.7),
+    0 0 0 2px #261c14,
+    0 0 0 3px #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 16;
+}
+
+.rope-hook-left::after, .rope-hook-right::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #2b1f13;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.rope-hook-left { left: 0px; }
+.rope-hook-right { right: 0px; }
+
+/* 3D Gerçekçi Ahşap Mandallar */
+.wooden-clothespin {
+  position: absolute;
+  top: -20px;
+  width: 18px;
+  height: 44px;
+  background: linear-gradient(
+    110deg,
+    #cf9665 0%,
+    #eed8b1 28%,
+    #c4864c 55%,
+    #9c5c28 85%,
+    #6d3e15 100%
+  );
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.55),
+    0 1px 2px rgba(255, 255, 255, 0.6) inset,
+    -1px 0 2px rgba(0, 0, 0, 0.3) inset;
+  z-index: 25;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.wooden-clothespin:hover {
+  transform: translateY(-2px);
+}
+
+/* Mandalın Üst Tutma Çentiği */
+.wooden-clothespin::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  height: 4px;
+  background: rgba(80, 45, 15, 0.35);
+  border-radius: 1px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+}
+
+/* Mandalın Metal Yay Halkası */
+.wooden-clothespin::after {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: -3px;
+  right: -3px;
+  height: 8px;
+  background: linear-gradient(to bottom, #ffffff 0%, #b0bec5 25%, #546e7a 70%, #263238 100%);
+  border-radius: 2.5px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.pin-left {
+  left: 26px;
+}
+.pin-right {
+  right: 26px;
+}
+
+/* 3D Asılı Çarşaf / Belge Kartı Sarmalayıcısı */
+.hanging-sheet-wrapper {
+  perspective: 1600px;
+  position: relative;
+  z-index: 5;
+}
+
+.hanging-sheet-card {
+  position: relative;
+  width: 100%;
+  min-height: 570px;
+  transition: transform 0.75s cubic-bezier(0.34, 1.45, 0.64, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.hanging-sheet-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* Ön ve Arka Yüz Temel Nitelikleri */
+.sheet-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 22px 40px -8px rgba(0, 0, 0, 0.55),
+    0 6px 16px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(190, 160, 120, 0.2);
+}
+
+/* Ön Yüz: Kapalı / Asılı Mühürlü Çarşaf Görseli */
+.sheet-front {
+  background: 
+    radial-gradient(circle at 50% 20%, #fdfbf7 0%, #f7f1e6 55%, #eae0cf 100%);
+  border: 1px solid #d4c5af;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sheet-front:hover {
+  filter: brightness(1.02);
+  transform: translateY(-4px) scale(1.008);
+  box-shadow: 
+    0 28px 50px -10px rgba(0, 0, 0, 0.65),
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+/* Kumaş / Arşiv Kağıdı Kenar Dikiş Dokusu (Sadece Kapalı Ön Yüzde) */
+.sheet-front::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px dashed rgba(160, 125, 85, 0.35);
+  pointer-events: none;
+  border-radius: 5px;
+}
+
+/* Arka Yüz: Açılan İnteraktif Sıcak Arşiv Belgesi */
+.sheet-back {
+  background: radial-gradient(circle at 50% 10%, #fdfbf7 0%, #f8f4ec 100%);
+  border: 1px solid #dfd5c3;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.15rem 1rem 1rem 1rem;
+  overflow-y: auto;
+}
+
+/* Asılı Çarşaf Doğal Salınım Mikro Animasyonları */
+@keyframes natural-sway-1 {
+  0%, 100% { transform: rotate(0deg) translateY(0px); }
+  50% { transform: rotate(0.8deg) translateY(1px); }
+}
+
+@keyframes natural-sway-2 {
+  0%, 100% { transform: rotate(0deg) translateY(0px); }
+  50% { transform: rotate(-0.8deg) translateY(1px); }
+}
+
+.sway-1 {
+  animation: natural-sway-1 5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.sway-2 {
+  animation: natural-sway-2 5.8s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* 3D Kabartmalı Gerçekçi Mühür */
+.vintage-wax-seal {
+  width: 62px;
+  height: 62px;
+  background: radial-gradient(circle at 35% 30%, #dc2626 0%, #991b1b 55%, #450a0a 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 6px 14px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(255, 255, 255, 0.5) inset,
+    0 -2px 4px rgba(0, 0, 0, 0.5) inset;
+  border: 2px solid #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  transform: rotate(-10deg);
+  position: relative;
+}
+
+.vintage-wax-seal::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}

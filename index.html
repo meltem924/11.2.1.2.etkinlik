@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="tr" class="h-full">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fransız İhtilali ve Günümüz Vatandaşlık Bilinci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body class="bg-[#f4eee2] text-[#2b2118] min-h-full flex flex-col font-sans">
+
+
+
+  <!-- Ana İçerik Alanı -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col">
+
+    <!-- ========================================================================= -->
+    <!-- GİRİŞ EKRANI (KONU BAŞLIĞI VE ÖĞRENME HEDEFİ) -->
+    <!-- ========================================================================= -->
+    <section id="step-0-container" class="step-section flex-1 flex flex-col justify-center py-8 sm:py-16">
+      <div class="max-w-4xl mx-auto w-full">
+
+        <div
+          class="parchment-card parchment-inner-dashed rounded-3xl p-10 sm:p-16 md:p-20 text-center flex flex-col items-center relative overflow-hidden shadow-xl">
+
+          <!-- Dekoratif Tarih Mührü -->
+          <div class="vintage-wax-seal mb-6 !w-[74px] !h-[74px]">
+            <span class="text-sm font-black">1789</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2a1e17] tracking-tight leading-tight">
+            Fransız İhtilali'nden Günümüze Vatandaşlık Bilinci
+          </h1>
+
+          <div class="w-28 h-1.5 bg-gradient-to-r from-amber-700 via-amber-500 to-amber-700 my-6 rounded-full"></div>
+
+          <p class="text-[#4a3b30] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+            XVIII. yüzyıl Fransa'sındaki toplumsal sınıfların hak ve sorumluluklarını inceleyecek;
+            Fransız İhtilali'nin dönüm noktalarını analiz ederek anayasal eşitlik ve modern vatandaşlık bilincinin
+            gelişim sürecini kavrayacaksınız.
+          </p>
+
+          <div class="mt-10 pt-8 w-full flex justify-center border-t border-amber-900/15">
+            <button id="btn-start-activity"
+              class="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white font-extrabold text-base tracking-wide rounded-none shadow-lg border border-amber-600/40 transition-all hover:scale-[1.03] cursor-pointer">
+              Etkinliğe Başla
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 1. ADIM: TANIKLIKLARI İNCELEME (Karakter Kartları ve Video İstasyonu) -->
+    <!-- ========================================================================= -->
+    <section id="step-1-container" class="step-section hidden flex-1 flex flex-col">
+
+      <!-- Üst Açıklama Çubuğu -->
+      <div
+        class="mb-4 bg-[#fdfbf7] border border-[#dfd5c3] p-4 sm:p-4.5 rounded-none shadow-xs flex items-center gap-3.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-amber-700 shrink-0 shadow-2xs"></div>
+        <p class="text-sm sm:text-base font-bold text-[#2b2118] leading-relaxed tracking-tight">
+          Aşağıdaki karakter kartlarına tıklayarak tanıklıkları dinleyiniz ve karakterlerin toplumsal durumuna ilişkin
+          çıkarımınızı belirleyiniz.
+        </p>
+      </div>
+
+      <!-- Karakter Kartları Izgarası (4 Kart) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+
+        <!-- Kart 1: Ruhban Sınıfı -->
+        <article
+          class="character-card group bg-gradient-to-b from-[#fdfbf7] to-[#f6efe4] rounded-2xl border border-[#d8ccb9] shadow-sm hover:shadow-xl hover:border-amber-600/70 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer hover:-translate-y-1"
+          data-character="ruhban">
+          <div class="relative aspect-square overflow-hidden bg-[#ebe2d3]">
+            <img src="./asset/ruhbanfoto.png" alt="Ruhban Sınıfı Temsilcisi"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              loading="lazy">
+            <!-- Play Overlay -->
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span id="badge-ruhban"
+                class="status-badge hidden px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white backdrop-blur-sm flex items-center gap-1 shadow-sm">
+              </span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white drop-shadow-md">
+              <span class="text-xs font-semibold bg-black/60 px-2.5 py-0.5 rounded backdrop-blur-xs">XVIII. Yüzyıl
+                Fransa</span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-4.5 flex flex-col flex-1 justify-between">
+            <div>
+              <div
+                class="text-[11px] font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded border border-amber-300/60 uppercase tracking-wide inline-block">
+                1. Sınıf (Ayrıcalıklı)</div>
+              <h3 class="text-base font-bold text-[#2a1e17] mt-1.5 group-hover:text-amber-900 transition-colors">Ruhban
+                Sınıfı</h3>
+              <p class="text-xs text-[#5c4a3d] mt-1.5 leading-relaxed font-medium">
+                Kilise ve din adamlarının geniş toprak mülkiyeti, vergi muafiyeti ve devlet yönetimindeki güçlü
+                siyasi/sosyal ayrıcalıkları.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Kart 2: Soylu Sınıfı -->
+        <article
+          class="character-card group bg-gradient-to-b from-[#fdfbf7] to-[#f6efe4] rounded-2xl border border-[#d8ccb9] shadow-sm hover:shadow-xl hover:border-purple-600/70 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer hover:-translate-y-1"
+          data-character="soylu">
+          <div class="relative aspect-square overflow-hidden bg-[#ebe2d3]">
+            <img src="./asset/soylu.png" alt="Soylu Sınıfı Temsilcisi"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              loading="lazy">
+            <!-- Play Overlay -->
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span id="badge-soylu"
+                class="status-badge hidden px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white backdrop-blur-sm flex items-center gap-1 shadow-sm">
+              </span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white drop-shadow-md">
+              <span class="text-xs font-semibold bg-black/60 px-2.5 py-0.5 rounded backdrop-blur-xs">XVIII. Yüzyıl
+                Fransa</span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-4.5 flex flex-col flex-1 justify-between">
+            <div>
+              <div
+                class="text-[11px] font-bold text-purple-800 bg-purple-100/80 px-2 py-0.5 rounded border border-purple-300/60 uppercase tracking-wide inline-block">
+                2. Sınıf (Aristokrasi)</div>
+              <h3 class="text-base font-bold text-[#2a1e17] mt-1.5 group-hover:text-purple-900 transition-colors">Soylu
+                Sınıfı</h3>
+              <p class="text-xs text-[#5c4a3d] mt-1.5 leading-relaxed font-medium">
+                Doğuştan gelen unvanlar, siyasi yönetim ve ordudaki tekel, feodal haklar ve vergi vermeme imtiyazı.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Kart 3: Üçüncü Tabaka (İşçi, Köylü, Burjuva) -->
+        <article
+          class="character-card group bg-gradient-to-b from-[#fdfbf7] to-[#f6efe4] rounded-2xl border border-[#d8ccb9] shadow-sm hover:shadow-xl hover:border-amber-700/70 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer hover:-translate-y-1"
+          data-character="isci_burjuva">
+          <div class="relative aspect-square overflow-hidden bg-[#ebe2d3]">
+            <img src="./asset/iscifoto.png" alt="Üçüncü Tabaka Temsilcisi"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              loading="lazy">
+            <!-- Play Overlay -->
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span id="badge-isci_burjuva"
+                class="status-badge hidden px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white backdrop-blur-sm flex items-center gap-1 shadow-sm">
+              </span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white drop-shadow-md">
+              <span class="text-xs font-semibold bg-black/60 px-2.5 py-0.5 rounded backdrop-blur-xs">XVIII. Yüzyıl
+                Fransa</span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-4.5 flex flex-col flex-1 justify-between">
+            <div>
+              <div
+                class="text-[11px] font-bold text-amber-900 bg-amber-100/80 px-2 py-0.5 rounded border border-amber-300/60 uppercase tracking-wide inline-block">
+                3. Tabaka (Halk ve Burjuvazi)</div>
+              <h3 class="text-base font-bold text-[#2a1e17] mt-1.5 group-hover:text-amber-950 transition-colors">Halk ve
+                Burjuvazi</h3>
+              <p class="text-xs text-[#5c4a3d] mt-1.5 leading-relaxed font-medium">
+                Nüfusun %98'ini oluşturan, tüm üretimi ve vergi yükünü üstlenen ancak siyasi temsilden yoksun olan
+                kesim.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Kart 4: Çağdaş Kadın Yurttaş -->
+        <article
+          class="character-card group bg-gradient-to-b from-[#fdfbf7] to-[#f6efe4] rounded-2xl border border-[#d8ccb9] shadow-sm hover:shadow-xl hover:border-blue-600/70 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer hover:-translate-y-1"
+          data-character="cagdas_yurttas">
+          <div class="relative aspect-square overflow-hidden bg-[#ebe2d3]">
+            <img src="./asset/modernkadin.png" alt="Çağdaş Yurttaş Temsilcisi"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              loading="lazy">
+            <!-- Play Overlay -->
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span id="badge-cagdas_yurttas"
+                class="status-badge hidden px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white backdrop-blur-sm flex items-center gap-1 shadow-sm">
+              </span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white drop-shadow-md">
+              <span class="text-xs font-bold bg-[#1e293b]/80 px-2.5 py-0.5 rounded backdrop-blur-xs">Günümüz
+                Dünyası</span>
+            </div>
+          </div>
+          <div class="p-4 sm:p-4.5 flex flex-col flex-1 justify-between">
+            <div>
+              <div
+                class="text-[11px] font-bold text-blue-900 bg-blue-100/80 px-2 py-0.5 rounded border border-blue-300/60 uppercase tracking-wide inline-block">
+                Hukuk Devleti</div>
+              <h3 class="text-base font-bold text-[#2a1e17] mt-1.5 group-hover:text-blue-950 transition-colors">Çağdaş
+                Yurttaş</h3>
+              <p class="text-xs text-[#5c4a3d] mt-1.5 leading-relaxed font-medium">
+                Kanun önünde eşitlik, kadın-erkek eşitliği, anayasal güvence, seçme ve seçilme hakkı ile evrensel
+                değerler.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Alt Yönlendirme ve Sonraki Adım Butonu -->
+      <div class="mt-8 flex items-center justify-end pt-4 border-t border-[#d8ccb9]">
+        <button id="btn-go-step-2"
+          class="w-full sm:w-auto px-7 py-3 rounded-none bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white font-bold text-sm shadow-md border border-amber-600/40 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]">
+          <span>Sonraki Aşama</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2. ADIM: HAK, AYRICALIK VE STATÜ EŞLEŞTİRMESİ -->
+    <!-- ========================================================================= -->
+    <section id="step-2-container" class="step-section hidden flex-1 flex flex-col">
+      <!-- Üst Açıklama Çubuğu -->
+      <div
+        class="mb-5 bg-[#fdfbf7] border border-[#dfd5c3] p-4 sm:p-4.5 rounded-none shadow-xs flex items-center gap-3.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-amber-700 shrink-0 shadow-2xs"></div>
+        <p class="text-sm sm:text-base font-bold text-[#2b2118] leading-relaxed tracking-tight">
+          Aşağıdaki kavram kartlarını sürükleyerek veya önce karta ardından hedef alana tıklayarak doğru toplumsal
+          sınıfa / döneme yerleştiriniz.
+        </p>
+      </div>
+
+      <!-- Kavram Havuzu (Karışık Dağıtılan Kartlar) -->
+      <div id="cards-pool"
+        class="mb-6 flex flex-wrap gap-2.5 min-h-[68px] items-center p-4 sm:p-5 rounded-2xl bg-[#f2eadf] border-2 border-dashed border-[#cbbba2] shadow-inner">
+        <!-- Dinamik kavram kartları JS ile eklenecek -->
+      </div>
+
+      <!-- 4 Hedef Alan Kutuları -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Hedef: Ruhban -->
+        <div
+          class="target-zone bg-gradient-to-b from-[#fdfbf7] to-[#f8f2e7] rounded-2xl border-2 border-[#d8ccb9] p-4 flex flex-col transition-all min-h-[170px] shadow-sm hover:border-amber-600/70"
+          data-target="ruhban">
+          <div class="flex items-center gap-3 pb-3 border-b border-[#e5dcce]">
+            <img src="./asset/ruhbanfoto.png" alt="Ruhban"
+              class="w-10 h-10 rounded-xl object-cover border border-[#cbbba2]">
+            <div>
+              <h4 class="font-bold text-[#2a1e17] text-sm sm:text-base">Ruhban Sınıfı</h4>
+            </div>
+          </div>
+          <div class="target-drop-area flex flex-col gap-2 mt-3 p-1 min-h-[90px]"></div>
+        </div>
+
+        <!-- Hedef: Soylu -->
+        <div
+          class="target-zone bg-gradient-to-b from-[#fdfbf7] to-[#f8f2e7] rounded-2xl border-2 border-[#d8ccb9] p-4 flex flex-col transition-all min-h-[170px] shadow-sm hover:border-purple-600/70"
+          data-target="soylu">
+          <div class="flex items-center gap-3 pb-3 border-b border-[#e5dcce]">
+            <img src="./asset/soylu.png" alt="Soylu" class="w-10 h-10 rounded-xl object-cover border border-[#cbbba2]">
+            <div>
+              <h4 class="font-bold text-[#2a1e17] text-sm sm:text-base">Soylu Sınıfı</h4>
+            </div>
+          </div>
+          <div class="target-drop-area flex flex-col gap-2 mt-3 p-1 min-h-[90px]"></div>
+        </div>
+
+        <!-- Hedef: Üçüncü Tabaka -->
+        <div
+          class="target-zone bg-gradient-to-b from-[#fdfbf7] to-[#f8f2e7] rounded-2xl border-2 border-[#d8ccb9] p-4 flex flex-col transition-all min-h-[170px] shadow-sm hover:border-amber-700/70"
+          data-target="isci_burjuva">
+          <div class="flex items-center gap-3 pb-3 border-b border-[#e5dcce]">
+            <img src="./asset/iscifoto.png" alt="Halk"
+              class="w-10 h-10 rounded-xl object-cover border border-[#cbbba2]">
+            <div>
+              <h4 class="font-bold text-[#2a1e17] text-sm sm:text-base">Üçüncü Tabaka</h4>
+            </div>
+          </div>
+          <div class="target-drop-area flex flex-col gap-2 mt-3 p-1 min-h-[90px]"></div>
+        </div>
+
+        <!-- Hedef: Çağdaş Yurttaş -->
+        <div
+          class="target-zone bg-gradient-to-b from-[#fdfbf7] to-[#f8f2e7] rounded-2xl border-2 border-[#d8ccb9] p-4 flex flex-col transition-all min-h-[170px] shadow-sm hover:border-blue-600/70"
+          data-target="cagdas_yurttas">
+          <div class="flex items-center gap-3 pb-3 border-b border-[#e5dcce]">
+            <img src="./asset/modernkadin.png" alt="Çağdaş Yurttaş"
+              class="w-10 h-10 rounded-xl object-cover border border-[#cbbba2]">
+            <div>
+              <h4 class="font-bold text-[#2a1e17] text-sm sm:text-base">Çağdaş Yurttaş</h4>
+            </div>
+          </div>
+          <div class="target-drop-area flex flex-col gap-2 mt-3 p-1 min-h-[90px]"></div>
+        </div>
+
+      </div>
+
+      <!-- Alt Butonlar -->
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#d8ccb9]">
+        <button id="btn-back-step-1" title="Önceki Adıma Dön" aria-label="Önceki Adım"
+          class="w-full sm:w-auto px-5 py-3 rounded-none bg-[#fdfbf7] border border-[#cbbba2] hover:bg-[#efe7da] text-[#4a3b30] font-bold text-sm transition-all flex items-center justify-center shadow-xs cursor-pointer">
+          <svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+          </svg>
+          <span>Önceki Adım</span>
+        </button>
+        <button id="btn-go-step-3"
+          class="w-full sm:w-auto px-7 py-3 rounded-none bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white font-bold text-sm shadow-md border border-amber-600/40 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]">
+          <span>Sonraki Aşama</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. ADIM: BÜYÜK KIRILMA TÜNELİ (3D ASILI İP & MANDALLI ARŞİV SERGİSİ) -->
+    <!-- ========================================================================= -->
+    <section id="step-3-container" class="step-section hidden flex-1 flex flex-col justify-between">
+
+      <!-- Üst Açıklama Çubuğu -->
+      <div
+        class="mb-4 bg-[#fdfbf7] border border-[#dfd5c3] p-4 sm:p-4.5 rounded-none shadow-xs flex items-center gap-3.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-amber-700 shrink-0 shadow-2xs"></div>
+        <p class="text-sm sm:text-base text-[#2b2118] font-bold leading-relaxed tracking-tight">
+          Aşağıda ipe asılı duran kapalı arşiv belgelerine tıklayarak açınız; dönüm noktalarının siyasi, hukuki ve
+          toplumsal etkilerini inceleyiniz.
+        </p>
+      </div>
+
+      <!-- 3D Arşiv & Müze Sergi Odası (İp, Mandallar ve Asılı Çarşaflar) -->
+      <div class="atelier-room rounded-3xl p-5 sm:p-7 my-auto relative">
+
+        <!-- Üstten Vuran Spot Işıkları -->
+        <div class="spotlight-overlay"></div>
+
+        <!-- Gerilmiş 3D İp (Çamaşır / Fotoğraf İpi) -->
+        <div class="clothesline-container">
+          <div class="rope-hook-left" title="Duvar Sabitleme Halkası"></div>
+          <div class="clothesline-rope"></div>
+          <div class="rope-hook-right" title="Duvar Sabitleme Halkası"></div>
+        </div>
+
+        <!-- 4 Asılı Çarşaf / Belge Izgarası -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 pt-4 pb-2 relative z-10">
+
+          <!-- 1. Asılı Belge: 1789 İnsan Hakları Bildirgesi -->
+          <div class="hanging-sheet-wrapper sway-1" data-break="1">
+            <!-- 3D Sol ve Sağ Ahşap Mandallar -->
+            <div class="wooden-clothespin pin-left" title="Ahşap Mandal"></div>
+            <div class="wooden-clothespin pin-right" title="Ahşap Mandal"></div>
+
+            <!-- Çevrilebilir 3D Kart -->
+            <div class="hanging-sheet-card" id="sheet-card-1">
+
+              <!-- ÖN YÜZ: KAPALI / MÜHÜRLÜ ÇARŞAF GÖRSELİ -->
+              <div class="sheet-face sheet-front" title="Belgeyi açmak için tıklayınız">
+                <div class="my-auto py-5 flex flex-col items-center text-center">
+                  <div class="vintage-wax-seal mb-4">
+                    <span class="text-xs font-black">1789</span>
+                  </div>
+                  <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wider mb-1">1. Dönüm Noktası</div>
+                  <h3 class="text-lg font-black text-stone-900 tracking-tight leading-tight">
+                    İnsan Hakları Bildirgesi
+                  </h3>
+                  <p class="text-xs text-stone-700 mt-2.5 max-w-[220px] leading-relaxed font-medium">
+                    Monarşi ve feodal ayrıcalıklar son buldu; egemenlik ulusa devredilerek temel insan hakları güvenceye
+                    bağlandı.
+                  </p>
+                </div>
+
+                <div class="pt-3.5 border-t border-amber-900/15">
+                  <div
+                    class="w-full py-2.5 px-3 rounded-xl bg-amber-900/10 hover:bg-amber-900/20 text-amber-950 text-xs font-extrabold transition-all flex items-center justify-center shadow-2xs">
+                    <span>Belgeyi İncele</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ARKA YÜZ: AÇIK BELGE VE TEMEL SONUÇ -->
+              <div class="sheet-face sheet-back cursor-pointer" title="Kapatmak için tıklayınız">
+                <div class="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 class="text-base font-extrabold text-[#2a1e17] leading-snug">İnsan Hakları Bildirgesi</h3>
+
+                    <div class="mt-3 space-y-2 text-xs leading-relaxed text-[#3d2f24]">
+                      <div class="p-2.5 bg-amber-50/90 border border-amber-200/90 rounded-xl">
+                        4 Ağustos 1789 kararlarıyla feodal düzen ve senyörlük hakları kaldırıldı. Egemenliğin kaynağı
+                        kraldan alınıp doğrudan ulusa devredildi; anayasal meclis iradesi kuruldu.
+                      </div>
+
+                      <div class="p-2.5 bg-sky-50/90 border border-sky-200/90 rounded-xl">
+                        <span class="font-extrabold text-sky-950 block mb-0.5 text-[11px] uppercase tracking-wide">Kazanılan
+                          Haklar:</span>
+                        17 maddelik İnsan ve Yurttaş Hakları Bildirgesi ilan edildi. "İnsanlar özgür ve eşit doğar"
+                        ilkesiyle yaşama, mülkiyet, güvenlik ve direnme hakları dokunulamaz kılındı.
+                      </div>
+
+                      <div class="p-2.5 bg-emerald-50/90 border border-emerald-200/90 rounded-xl">
+                        <span
+                          class="font-extrabold text-emerald-950 block mb-0.5 text-[11px] uppercase tracking-wide">Toplumsal
+                          Etki:</span>
+                        Ruhban ve soyluların vergi muafiyeti ile yargı imtiyazlarına son verildi; Kilise toprakları
+                        kamulaştırıldı. Köylülerin senyörlere bağımlılığı bitirilip adil vergi düzenine geçildi.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Alt Günümüze Yansıması Özeti -->
+                  <div
+                    class="mt-3 pt-2.5 border-t border-[#dfd5c3] bg-[#f8f3ea] p-2.5 rounded-xl border border-[#dfd5c3]/80">
+                    <span class="font-extrabold text-[#2a1e17] block mb-0.5 text-[11px] uppercase tracking-wide">Günümüze Yansıması:</span>
+                    <p class="text-[11px] text-[#4a3b30] leading-relaxed font-medium">
+                      Egemenliğin kaynağı ilahi/hanedan yetkisinden bağımsızlaşıp doğrudan ulusal iradeye dayandırılmış;
+                      tebaa anlayışı yerini anayasal hak sahibi eşit bireylere bırakmıştır.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 2. Asılı Belge: 1791 Kadın Hakları Direnişi -->
+          <div class="hanging-sheet-wrapper sway-2" data-break="2">
+            <!-- 3D Sol ve Sağ Ahşap Mandallar -->
+            <div class="wooden-clothespin pin-left" title="Ahşap Mandal"></div>
+            <div class="wooden-clothespin pin-right" title="Ahşap Mandal"></div>
+
+            <!-- Çevrilebilir 3D Kart -->
+            <div class="hanging-sheet-card" id="sheet-card-2">
+
+              <!-- ÖN YÜZ: KAPALI / MÜHÜRLÜ ÇARŞAF GÖRSELİ -->
+              <div class="sheet-face sheet-front" title="Belgeyi açmak için tıklayınız">
+                <div class="my-auto py-5 flex flex-col items-center text-center">
+                  <div class="vintage-wax-seal mb-4">
+                    <span class="text-xs font-black">1791</span>
+                  </div>
+                  <div class="text-[11px] font-bold text-purple-800 uppercase tracking-wider mb-1">2. Dönüm Noktası
+                  </div>
+                  <h3 class="text-lg font-black text-stone-900 tracking-tight leading-tight">
+                    Kadın Hakları Direnişi
+                  </h3>
+                  <p class="text-xs text-stone-700 mt-2.5 max-w-[220px] leading-relaxed font-medium">
+                    Anayasadaki oy ayrımcılığına karşı direniş başladı; kadın-erkek eşitliği ve anayasal haklar talep
+                    edildi.
+                  </p>
+                </div>
+
+                <div class="pt-3.5 border-t border-amber-900/15">
+                  <div
+                    class="w-full py-2.5 px-3 rounded-xl bg-amber-900/10 hover:bg-amber-900/20 text-amber-950 text-xs font-extrabold transition-all flex items-center justify-center shadow-2xs">
+                    <span>Belgeyi İncele</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ARKA YÜZ: AÇIK BELGE VE TEMEL SONUÇ -->
+              <div class="sheet-face sheet-back cursor-pointer" title="Kapatmak için tıklayınız">
+                <div class="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 class="text-base font-extrabold text-[#2a1e17] leading-snug">Kadın Hakları Direnişi</h3>
+
+                    <div class="mt-3 space-y-2 text-xs leading-relaxed text-[#3d2f24]">
+                      <div class="p-2.5 bg-amber-50/90 border border-amber-200/90 rounded-xl">
+                        1791 Anayasası ile kuvvetler ayrılığına dayalı meşruti monarşi kuruldu; ancak yurttaşlar "aktif"
+                        ve "pasif" olarak ayrılarak kadınlar oy hakkından mahrum bırakıldı.
+                      </div>
+
+                      <div class="p-2.5 bg-purple-50/90 border border-purple-200/90 rounded-xl">
+                        <span
+                          class="font-extrabold text-purple-950 block mb-0.5 text-[11px] uppercase tracking-wide">Kazanılan
+                          Haklar:</span>
+                        Olympe de Gouges "Kadın ve Yurttaş Hakları Bildirgesi"ni yayımladı. "Kadın özgür doğar ve
+                        erkeklerle eşit haklara sahiptir; kürsüye çıkma hakkı tanınmalıdır" ilkesini savundu.
+                      </div>
+
+                      <div class="p-2.5 bg-emerald-50/90 border border-emerald-200/90 rounded-xl">
+                        <span
+                          class="font-extrabold text-emerald-950 block mb-0.5 text-[11px] uppercase tracking-wide">Toplumsal
+                          Etki:</span>
+                        Kadınlar siyasi kulüpler ve Versailles yürüyüşüyle devrimde aktif rol aldı. Pasif vatandaşlık
+                        engeline karşı eğitim, evlilik, boşanma, miras ve çalışma haklarının temeli atıldı.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Alt Günümüze Yansıması Özeti -->
+                  <div
+                    class="mt-3 pt-2.5 border-t border-[#dfd5c3] bg-[#f8f3ea] p-2.5 rounded-xl border border-[#dfd5c3]/80">
+                    <span class="font-extrabold text-[#2a1e17] block mb-0.5 text-[11px] uppercase tracking-wide">Günümüze Yansıması:</span>
+                    <p class="text-[11px] text-[#4a3b30] leading-relaxed font-medium">
+                      İnsan haklarının evrenselliği sorgulanmış; gerçek bir eşitliğin cinsiyet ayrımı gözetilmeksizin
+                      tüm yurttaşlara tanınması gerektiği tarihi bir hak mücadelesine dönüşmüştür.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3. Asılı Belge: 1804 Medeni Kanun -->
+          <div class="hanging-sheet-wrapper sway-1" data-break="3">
+            <!-- 3D Sol ve Sağ Ahşap Mandallar -->
+            <div class="wooden-clothespin pin-left" title="Ahşap Mandal"></div>
+            <div class="wooden-clothespin pin-right" title="Ahşap Mandal"></div>
+
+            <!-- Çevrilebilir 3D Kart -->
+            <div class="hanging-sheet-card" id="sheet-card-3">
+
+              <!-- ÖN YÜZ: KAPALI / MÜHÜRLÜ ÇARŞAF GÖRSELİ -->
+              <div class="sheet-face sheet-front" title="Belgeyi açmak için tıklayınız">
+                <div class="my-auto py-5 flex flex-col items-center text-center">
+                  <div class="vintage-wax-seal mb-4">
+                    <span class="text-xs font-black">1804</span>
+                  </div>
+                  <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wider mb-1">3. Dönüm Noktası</div>
+                  <h3 class="text-lg font-black text-stone-900 tracking-tight leading-tight">
+                    1804 Medeni Kanun
+                  </h3>
+                  <p class="text-xs text-stone-700 mt-2.5 max-w-[220px] leading-relaxed font-medium">
+                    Soyluluk ayrıcalıkları silindi; tüm dünyaya örnek olan kanun önünde eşitlik ve laik medeni hukuk
+                    tesis edildi.
+                  </p>
+                </div>
+
+                <div class="pt-3.5 border-t border-amber-900/15">
+                  <div
+                    class="w-full py-2.5 px-3 rounded-xl bg-amber-900/10 hover:bg-amber-900/20 text-amber-950 text-xs font-extrabold transition-all flex items-center justify-center shadow-2xs">
+                    <span>Belgeyi İncele</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ARKA YÜZ: AÇIK BELGE & TEMEL SONUÇ -->
+              <div class="sheet-face sheet-back cursor-pointer" title="Kapatmak için tıklayınız">
+                <div class="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 class="text-base font-extrabold text-[#2a1e17] leading-snug">1804 Medeni Kanun</h3>
+
+                    <div class="mt-3 space-y-2 text-xs leading-relaxed text-[#3d2f24]">
+                      <div class="p-2.5 bg-amber-50/90 border border-amber-200/90 rounded-xl">
+                        Parçalı feodal mahkemeler kaldırıldı; ülke genelinde merkezi, laik, yazılı ve kanun önünde eşit
+                        tek bir hukuk birliği kuruldu.
+                      </div>
+
+                      <div class="p-2.5 bg-sky-50/90 border border-sky-200/90 rounded-xl">
+                        <span class="font-extrabold text-sky-950 block mb-0.5 text-[11px] uppercase tracking-wide">Kazanılan
+                          Haklar:</span>
+                        Napoléon Kanunu ile doğuştan gelen soyluluk unvanları, sınıf imtiyazları ve feodal ayrıcalıklar
+                        hukuktan tamamen silindi.
+                      </div>
+
+                      <div class="p-2.5 bg-emerald-50/90 border border-emerald-200/90 rounded-xl">
+                        <span
+                          class="font-extrabold text-emerald-950 block mb-0.5 text-[11px] uppercase tracking-wide">Toplumsal
+                          Etki:</span>
+                        Mülkiyet hakkı, sözleşme serbestisi ve laik medeni nikah güvenceye bağlandı; Avrupa, Latin
+                        Amerika ve Afrika hukukuna örnek oldu.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Alt Günümüze Yansıması Özeti -->
+                  <div
+                    class="mt-3 pt-2.5 border-t border-[#dfd5c3] bg-[#f8f3ea] p-2.5 rounded-xl border border-[#dfd5c3]/80">
+                    <span class="font-extrabold text-[#2a1e17] block mb-0.5 text-[11px] uppercase tracking-wide">Günümüze Yansıması:</span>
+                    <p class="text-[11px] text-[#4a3b30] leading-relaxed font-medium">
+                      İhtilalin eşitlik ilkeleri kalıcı pozitif hukuka dönüştürülerek günümüz modern medeni hukukunun ve
+                      dünya adalet sistemlerinin temeli atılmıştır.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 4. Asılı Belge: Günümüz Çağdaş Yurttaşlık -->
+          <div class="hanging-sheet-wrapper sway-2" data-break="4">
+            <!-- 3D Sol ve Sağ Ahşap Mandallar -->
+            <div class="wooden-clothespin pin-left" title="Ahşap Mandal"></div>
+            <div class="wooden-clothespin pin-right" title="Ahşap Mandal"></div>
+
+            <!-- Çevrilebilir 3D Kart -->
+            <div class="hanging-sheet-card" id="sheet-card-4">
+
+              <!-- ÖN YÜZ: KAPALI / MÜHÜRLÜ ÇARŞAF GÖRSELİ -->
+              <div class="sheet-face sheet-front" title="Belgeyi açmak için tıklayınız">
+                <div class="my-auto py-5 flex flex-col items-center text-center">
+                  <div class="vintage-wax-seal mb-4">
+                    <span class="text-xs font-black">XXI. YY</span>
+                  </div>
+                  <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider mb-1">4. Dönüm Noktası
+                  </div>
+                  <h3 class="text-lg font-black text-stone-900 tracking-tight leading-tight">
+                    Çağdaş Yurttaşlık
+                  </h3>
+                  <p class="text-xs text-stone-700 mt-2.5 max-w-[220px] leading-relaxed font-medium">
+                    Hükümdara bağlılığın yerini ulusal irade aldı; zümre ayrıcalıkları son bularak eşit vatandaşlık
+                    ilkesi kabul edildi.
+                  </p>
+                </div>
+
+                <div class="pt-3.5 border-t border-amber-900/15">
+                  <div
+                    class="w-full py-2.5 px-3 rounded-xl bg-amber-900/10 hover:bg-amber-900/20 text-amber-950 text-xs font-extrabold transition-all flex items-center justify-center shadow-2xs">
+                    <span>Belgeyi İncele</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ARKA YÜZ: AÇIK BELGE VE TEMEL SONUÇ -->
+              <div class="sheet-face sheet-back cursor-pointer" title="Kapatmak için tıklayınız">
+                <div class="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 class="text-base font-extrabold text-[#2a1e17] leading-snug">Çağdaş Yurttaşlık</h3>
+
+                    <div class="mt-3 space-y-2 text-xs leading-relaxed text-[#3d2f24]">
+                      <div class="p-2.5 bg-amber-50/90 border border-amber-200/90 rounded-xl">
+                        İhtilalden önce monarşiye ve hükümdara sadakat varken; ihtilal sonrasında egemenliğin sahibi
+                        olan bağımsız ulusa sadakat düşüncesi ağırlık kazandı.
+                      </div>
+
+                      <div class="p-2.5 bg-sky-50/90 border border-sky-200/90 rounded-xl">
+                        <span class="font-extrabold text-sky-950 block mb-0.5 text-[11px] uppercase tracking-wide">Kazanılan
+                          Haklar:</span>
+                        Vatandaşlık, vatanseverlik ve milliyetçilik yeniden tanımlandı; her yurttaşın egemen bir ulusun
+                        eşit üyesi olduğu ilkesi benimsendi.
+                      </div>
+
+                      <div class="p-2.5 bg-emerald-50/90 border border-emerald-200/90 rounded-xl">
+                        <span
+                          class="font-extrabold text-emerald-950 block mb-0.5 text-[11px] uppercase tracking-wide">Toplumsal
+                          Etki:</span>
+                        Kulluk ve zümre ayrıcalıkları tamamen sona erdi; toplumdaki herkesin kanun önünde eşit haklara
+                        ve ortak yurttaşlık sorumluluklarına sahip olduğu vurgulandı.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Alt Günümüze Yansıması Özeti -->
+                  <div
+                    class="mt-3 pt-2.5 border-t border-[#dfd5c3] bg-[#f8f3ea] p-2.5 rounded-xl border border-[#dfd5c3]/80">
+                    <span class="font-extrabold text-[#2a1e17] block mb-0.5 text-[11px] uppercase tracking-wide">Günümüze Yansıması:</span>
+                    <p class="text-[11px] text-[#4a3b30] leading-relaxed font-medium">
+                      Çağdaş yurttaşlık; bireyi pasif bir tebaa olmaktan çıkarıp egemenliğin ortağı, haklarını arayan ve
+                      anayasal sorumluluklar taşıyan eşit bir üyeye dönüştürmüştür.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Alt Gezinme Butonları -->
+      <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-[#d8ccb9]">
+        <button id="btn-back-step-2" title="Önceki Adıma Dön" aria-label="Önceki Adım"
+          class="w-full sm:w-auto px-5 py-3 rounded-none bg-[#fdfbf7] border border-[#cbbba2] hover:bg-[#efe7da] text-[#4a3b30] font-bold text-sm transition-all flex items-center justify-center shadow-xs cursor-pointer">
+          <svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+          </svg>
+          <span>Önceki Adım</span>
+        </button>
+
+        <button id="btn-go-step-4"
+          class="w-full sm:w-auto px-8 py-3 rounded-none bg-gradient-to-r from-[#065f46] via-[#047857] to-[#065f46] hover:from-[#047857] hover:to-[#059669] text-white font-bold text-sm shadow-md border border-emerald-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]">
+          <span>Etkinliği Tamamla →</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. ADIM: ETKİNLİK TAMAMLANDI EKRANI -->
+    <!-- ========================================================================= -->
+    <section id="step-4-container" class="step-section hidden flex-1 flex flex-col justify-center py-6 sm:py-10">
+      <div class="max-w-2xl mx-auto w-full">
+
+        <!-- Tamamlandı Kartı (Arşiv Beratı / Sertifika Tasarımı) -->
+        <div id="completion-card-content"
+          class="parchment-card parchment-inner-dashed rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+
+          <!-- Başarı İkonu / Mühür -->
+          <div
+            class="w-20 h-20 rounded-full bg-emerald-100 border-2 border-emerald-600/40 text-emerald-700 mx-auto flex items-center justify-center mb-5 shadow-inner">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+
+          <span
+            class="text-xs font-bold uppercase tracking-widest text-emerald-900 bg-emerald-100/90 px-4 py-1.5 rounded-full border border-emerald-300">
+            Tebrikler
+          </span>
+
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2a1e17] mt-4 tracking-tight">
+            Etkinliği Başarıyla Tamamladınız!
+          </h2>
+
+          <!-- Aksiyon Butonları -->
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 pt-6 border-t border-amber-900/15">
+            <button id="btn-restart"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-none bg-[#fdfbf7] border border-[#cbbba2] hover:bg-[#efe7da] text-[#4a3b30] font-bold text-sm transition-all flex items-center justify-center gap-2.5 shadow-xs cursor-pointer">
+              <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                </path>
+              </svg>
+              <span>Etkinliği Yeniden Başlat</span>
+            </button>
+
+            <button id="btn-finish-activity"
+              class="w-full sm:w-auto px-7 py-3.5 rounded-none bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white font-bold text-sm shadow-md border border-amber-600/40 transition-all flex items-center justify-center gap-2.5 cursor-pointer hover:scale-[1.01]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                </path>
+              </svg>
+              <span>Etkinliği Bitir</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Tarayıcı Penceresi Kapatılamadığında Görüntülenecek Bilgi Kutusu -->
+        <div id="finish-screen-closed"
+          class="hidden bg-[#231c17] text-[#f5efe6] rounded-3xl p-8 sm:p-12 text-center shadow-xl border border-[#423429]">
+          <div
+            class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-amber-100 mb-2">Etkinlik Sona Erdi</h3>
+          <p class="text-[#c2b3a1] text-sm max-w-md mx-auto leading-relaxed">
+            Tüm adımları başarıyla tamamladınız. Bu sekmeyi veya tarayıcı penceresini artık güvenle kapatabilirsiniz.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- VİDEO & DEĞERLENDİRME MODAL PENCERESİ (KATMANLI GEÇİŞ DÜZENİ) -->
+  <!-- ========================================================================= -->
+  <div id="video-modal"
+    class="fixed inset-0 z-50 bg-[#120d0a]/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 hidden opacity-0 transition-opacity duration-300">
+    <div
+      class="bg-[#fbf9f4] rounded-2xl max-w-3xl lg:max-w-4xl w-full shadow-2xl overflow-hidden flex flex-col border border-[#cbbba2]">
+
+      <!-- Modal Başlık Çubuğu -->
+      <div
+        class="px-6 py-4 bg-[#f4ecdf] text-[#2a1e17] border-b border-[#dfd5c3] flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div id="modal-char-avatar" class="w-10 h-10 rounded-xl overflow-hidden border border-[#cbbba2] shadow-sm">
+            <img src="./asset/ruhbanfoto.png" alt="Karakter" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h3 id="modal-char-title" class="font-bold text-base sm:text-lg text-[#2a1e17] leading-tight">Ruhban Sınıfı
+            </h3>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <!-- Videoyu Tekrar Dinle/İzle Butonu (Soru Alanında Görünür) -->
+          <button id="btn-replay-video"
+            class="hidden px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-[#fdfbf7] hover:bg-[#eae0d2] text-[#4a3b30] border border-[#cbbba2] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+            title="Videoyu Baştan Oynat">
+            <svg class="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+              </path>
+            </svg>
+            <span>Videoyu İzle</span>
+          </button>
+
+          <!-- Kapatma Butonu -->
+          <button id="btn-close-modal"
+            class="p-1.5 rounded-lg text-[#6b5849] hover:text-[#2a1e17] hover:bg-[#eae0d2] transition-colors cursor-pointer"
+            aria-label="Kapat">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 1. Aşama: Video Oynatıcı Alanı -->
+      <div id="modal-video-wrapper"
+        class="relative bg-black aspect-video flex items-center justify-center overflow-hidden">
+        <video id="active-video-player" class="w-full h-full object-contain" controls playsinline preload="metadata">
+          <source src="" type="video/mp4">
+          Tarayıcınız video oynatmayı desteklemiyor.
+        </video>
+      </div>
+
+      <!-- 2. Aşama: Video Tamamlandığında Açılan Soru ve Değerlendirme Alanı -->
+      <div id="modal-question-area"
+        class="p-6 sm:p-8 bg-[#fbf9f4] flex-1 flex flex-col justify-between hidden min-h-[460px] max-h-[85vh] overflow-y-auto">
+        <div>
+          <!-- Soru Metni -->
+          <p id="modal-question-text" class="text-sm sm:text-base font-bold text-[#2a1e17] mb-4 leading-relaxed">
+            <!-- Dinamik Soru JS ile yüklenecek -->
+          </p>
+
+          <!-- Çoklu Seçenekler Listesi -->
+          <div id="modal-options-container" class="space-y-2.5">
+            <!-- Dinamik Onay Kutuları JS ile yüklenecek -->
+          </div>
+
+          <!-- Anlık Pedagojik Geri Bildirim -->
+          <div id="modal-feedback-box"
+            class="text-xs sm:text-sm font-medium p-3.5 sm:p-4 rounded-xl mt-3.5 hidden transition-all"></div>
+        </div>
+
+        <!-- Alt Butonlar -->
+        <div class="mt-5 pt-4 border-t border-[#dfd5c3] flex items-center justify-center">
+          <button id="btn-check-modal-answer"
+            class="px-8 py-3 rounded-none bg-gradient-to-r from-[#78350f] via-[#92400e] to-[#78350f] hover:from-[#92400e] hover:to-[#b45309] text-white text-xs sm:text-sm font-bold shadow-md border border-amber-600/40 transition-all flex items-center gap-2 cursor-pointer hover:scale-[1.01]">
+            <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Seçimleri Kontrol Et</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./scorm-api-wrapper.js"></script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
